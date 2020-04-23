@@ -24,12 +24,15 @@ console.log(getCategories(menu));
 function nameToListItem(name) {
     const listItem = document.createElement('li');
     listItem.textContent = name;
+    listItem.addEventListener('click', function(){
+        console.log(`You just clicked ${listItem.textContent}!`);
+    })
 
     return listItem;
 
 };
 
-console.log(nameToListItem('breakfast'));
+const breakfast = nameToListItem('breakfast');
 
 
 // ******* Write a function that transforms an array of category ***** //
@@ -54,7 +57,7 @@ function categoriesToListItem(arrayOfStrings) {
 
 const categoryListItems = categoriesToListItem(getCategories(menu));
 
-    
+console.log(categoriesToListItem(getCategories(menu)));
 
 // ******* Call your getCategories() function 
 
@@ -63,28 +66,26 @@ const categoryListItems = categoriesToListItem(getCategories(menu));
     // Take the result and pass it to the categoriesToListItem() function
 
 
+const menuContainer = document.querySelector('.js-menu');
+function renderToObject(listItemArray){
+    listItemArray.forEach(function(item) {
+        menuContainer.appendChild(item);
+    });
+};
 
-// for (const element of categoryListItems){
-//     console.log(element);
-// }
+renderToObject(categoryListItems);
 
-
+// categoryListItems.map(renderToObject);
 // ******* Render the list items to .js-menu ******** //
 // ************************************************** //
 
-// function appendList(catListItem){
-//     let elementToAppend = document.querySelector('.js-menu');
-//     elementToAppend.appendChild('li');
-// }
+    // Write a function that can append a single <li> to the
+    // .js-menu element.
 
-//     // Write a function that can append a single <li> to the
-//     // .js-menu element.
+    // Apply that function to your array of <li> elements using 
+    // (.map)
 
-//     // Apply that function to your array of <li> elements using 
-//     // (.map)
+    // (Hint: this is the third step in transforming the category 
+    // names into DOM elements the user can see. The first two are 
+    // getCategories() and categoriesToListItem())
 
-//     // (Hint: this is the third step in transforming the category 
-//     // names into DOM elements the user can see. The first two are 
-//     // getCategories() and categoriesToListItem())
-
-// console.log(categoryListItems.map(getCategories()));
