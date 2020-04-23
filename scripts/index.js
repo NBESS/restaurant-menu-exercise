@@ -40,16 +40,21 @@ console.log(nameToListItem('breakfast'));
 
 function categoriesToListItem(arrayOfStrings) {
     const category = [];
+    let categoryLink = '';
     for (index = 0; index < arrayOfStrings.length; index++){
-        category.push(arrayOfStrings[index]);
+
+        // It should use your nameToListItem() function to do 
+        // the transformation.
+
+        categoryLink = nameToListItem(arrayOfStrings[index]);
+        category.push(categoryLink);
     }  
     return category;
 };
 
-console.log(categoriesToListItem(getCategories(menu)));
+const categoryListItems = categoriesToListItem(getCategories(menu));
 
-    // It should use your nameToListItem() function to do 
-    // the transformation.
+    
 
 // ******* Call your getCategories() function 
 
@@ -57,15 +62,29 @@ console.log(categoriesToListItem(getCategories(menu)));
 
     // Take the result and pass it to the categoriesToListItem() function
 
+
+
+// for (const element of categoryListItems){
+//     console.log(element);
+// }
+
+
 // ******* Render the list items to .js-menu ******** //
 // ************************************************** //
 
-    // Write a function that can append a single <li> to the
-    // .js-menu element.
+// function appendList(catListItem){
+//     let elementToAppend = document.querySelector('.js-menu');
+//     elementToAppend.appendChild('li');
+// }
 
-    // Apply that function to your array of <li> elements using 
-    // (.map)
+//     // Write a function that can append a single <li> to the
+//     // .js-menu element.
 
-    // (Hint: this is the third step in transforming the category 
-    // names into DOM elements the user can see. The first two are 
-    // getCategories() and categoriesToListItem())
+//     // Apply that function to your array of <li> elements using 
+//     // (.map)
+
+//     // (Hint: this is the third step in transforming the category 
+//     // names into DOM elements the user can see. The first two are 
+//     // getCategories() and categoriesToListItem())
+
+// console.log(categoryListItems.map(getCategories()));
